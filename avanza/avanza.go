@@ -3,21 +3,22 @@
 // Please note that I am not affiliated with Avanza Bank AB in any way. The underlying API can be taken down or changed without warning at any point in time.
 //
 // To install the package simply run
-//  go get github.com/open-wallstreet/go-avanza
 //
+//	go get github.com/open-wallstreet/go-avanza
 //
 // You can create a new client simply like this
-//  func main() {
-//      client := avanza.New()
-//      defer client.Close()
-//  }
+//
+//	func main() {
+//	    client := avanza.New()
+//	    defer client.Close()
+//	}
 //
 // Or if you need to debug http responses
-//  func main() {
-//      client := avanza.New(avanza.WithDebug(true))
-//      defer client.Close()
-//  }
 //
+//	func main() {
+//	    client := avanza.New(avanza.WithDebug(true))
+//	    defer client.Close()
+//	}
 package avanza
 
 import (

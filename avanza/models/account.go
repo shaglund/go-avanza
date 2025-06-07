@@ -160,8 +160,7 @@ type AccountOverviewResponse struct {
 	SharpeRatio               float64 `json:"sharpeRatio"`
 }
 
-type OverviewParams struct {
-}
+type OverviewParams struct{}
 
 type OverviewResponse struct {
 	Accounts []struct {
@@ -195,47 +194,81 @@ type OverviewResponse struct {
 	NumberOfIntradayTransfers int     `json:"numberOfIntradayTransfers"`
 }
 
-type GetPositionsParams struct {
+type GetPositionsParams struct{}
+
+type Value struct {
+	Value            float64 `json:"value"`
+	Unit             string  `json:"unit"`
+	UnitType         string  `json:"unitType"`
+	DecimalPrecision int     `json:"decimalPrecision"`
+}
+
+type Account struct {
+	Id             string `json:"id"`
+	Type           string `json:"type"`
+	Name           string `json:"name"`
+	UrlParameterId string `json:"urlParameterId"`
+	HasCredit      bool   `json:"hasCredit"`
 }
 
 type GetPositionsResponse struct {
-	InstrumentPositions []struct {
-		InstrumentType string `json:"instrumentType"`
-		Positions      []struct {
-			AccountName          string  `json:"accountName"`
-			AccountType          string  `json:"accountType"`
-			Depositable          bool    `json:"depositable"`
-			AccountID            string  `json:"accountId"`
-			Profit               float64 `json:"profit"`
-			Volume               float64 `json:"volume"`
-			AverageAcquiredPrice float64 `json:"averageAcquiredPrice"`
-			ProfitPercent        float64 `json:"profitPercent"`
-			AcquiredValue        float64 `json:"acquiredValue"`
-			Value                float64 `json:"value"`
-			FlagCode             string  `json:"flagCode"`
-			Currency             string  `json:"currency"`
-			OrderbookID          string  `json:"orderbookId"`
-			Tradable             bool    `json:"tradable"`
-			LastPrice            float64 `json:"lastPrice"`
-			Change               float64 `json:"change"`
-			ChangePercent        float64 `json:"changePercent"`
-			Name                 string  `json:"name"`
-			LastPriceUpdated     string  `json:"lastPriceUpdated,omitempty"`
-		} `json:"positions"`
-		TodaysProfitPercent float64 `json:"todaysProfitPercent"`
-		TotalValue          float64 `json:"totalValue"`
-		TotalProfitValue    float64 `json:"totalProfitValue"`
-		TotalProfitPercent  float64 `json:"totalProfitPercent"`
-	} `json:"instrumentPositions"`
-	TotalProfit        float64 `json:"totalProfit"`
-	TotalBuyingPower   float64 `json:"totalBuyingPower"`
-	TotalOwnCapital    float64 `json:"totalOwnCapital"`
-	TotalBalance       float64 `json:"totalBalance"`
-	TotalProfitPercent float64 `json:"totalProfitPercent"`
+	WithOrderBook []struct {
+		Account    Account `json:"account"`
+		Instrument struct {
+			Id        string `json:"id"`
+			Type      string `json:"type"`
+			Name      string `json:"name"`
+			OrderBook struct {
+				Id          string
+				FlagCode    string
+				Name        string
+				Type        string
+				TradeStatus string
+				Quote       struct {
+					Highest       Value  `json:"highest"`
+					Lowest        Value  `json:"lowest"`
+					Buy           Value  `json:"buy"`
+					Sell          Value  `json:"sell"`
+					Latest        Value  `json:"latest"`
+					Change        Value  `json:"change"`
+					ChangePercent Value  `json:"changePercent"`
+					Updated       string `json:"updated"`
+				} `json:"quote"`
+				Turnover struct {
+					Volume Value `json:"volume"`
+					Value  Value `json:"value"`
+				} `json:"turnover"`
+				LastDeal struct {
+					Date string
+					Time string
+				}
+			} `json:"orderBook"`
+			Currency     string  `json:"currency"`
+			Isin         string  `json:"isin"`
+			VolumeFactor float64 `json:"volumeFactor"`
+		} `json:"instrument"`
+		LastTradingDayPerformance struct {
+			Absolute Value `json:"Absolute"`
+			Relative Value `json:"relative"`
+		} `json:"lastTradingDayPerformance"`
+		Id                                     string `json:"id"`
+		SuperInterestApproved                  bool   `json:"superInterestApproved"`
+		Volume                                 Value  `json:"volume"`
+		Value                                  Value  `json:"value"`
+		AverageAcquiredPrice                   Value  `json:"averageAcquiredPrice"`
+		AverageAcquiredPriceInstrumentCurrency Value  `json:"averageAcquiredPriceInstrumentCurrency"`
+		AcquiredValue                          Value  `json:"acquiredValue"`
+		CollateralFactor                       Value  `json:"collateralFactor"`
+	} `json:"withOrderbook"`
+	WithoutOrderBook []struct{} `json:"withoutOrderbook,omitempty"`
+	CashPositions    []struct {
+		Account      Account `json:"account"`
+		TotalBalance Value   `json:"totalBalance"`
+	} `json:"cashPositions"`
+	WithCreditAccount bool `json:"withCreditAccount"`
 }
 
-type GetDealsAndOrdersParams struct {
-}
+type GetDealsAndOrdersParams struct{}
 
 type GetDealsAndOrdersResponse struct {
 	Orders []interface{} `json:"orders"`

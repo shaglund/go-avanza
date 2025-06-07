@@ -2,15 +2,16 @@ package account
 
 import (
 	"context"
+	"net/http"
+
 	"github.com/open-wallstreet/go-avanza/avanza/client"
 	"github.com/open-wallstreet/go-avanza/avanza/models"
-	"net/http"
 )
 
 const (
-	OverviewPath          = "/_mobile/account/overview"
+	OverviewPath          = "/_api/account-performance/overview/total-values"
 	AccountOverviewPath   = "/_mobile/account/{accountId}/overview"
-	GetPositionsPath      = "/_mobile/account/positions"
+	GetPositionsPath      = "/_api/position-data/positions"
 	GetDealsAndOrdersPath = "/_mobile/account/dealsandorders"
 	GetTransactionsPath   = "/_mobile/account/transactions/{accountId}"
 	GetMyCompanyEvents    = "/_cqbe/market/my-company-events"

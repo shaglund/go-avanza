@@ -3,15 +3,18 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/go-resty/resty/v2"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
 	"net/http"
 	"time"
+
+	"github.com/go-resty/resty/v2"
+	"github.com/open-wallstreet/go-avanza/avanza/models"
 )
 
-const BaseUrl = "https://www.avanza.se"
-const DefaultRetryCount = 3
-const DefaultUserAgent = "Avanza GO API client"
+const (
+	BaseUrl           = "https://www.avanza.se"
+	DefaultRetryCount = 3
+	DefaultUserAgent  = "Avanza GO API client"
+)
 
 // Client defines an HTTP client for the Avanza API.
 type Client struct {
