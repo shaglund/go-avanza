@@ -1,12 +1,12 @@
 # Avanza Unofficial GO API Client
-[![Go Reference](https://pkg.go.dev/badge/github.com/open-wallstreet/go-avanza.svg)](https://pkg.go.dev/github.com/open-wallstreet/go-avanza)
-![CI](https://github.com/open-wallstreet/go-avanza/actions/workflows/build_and_test.yml/badge.svg)
+[![Go Reference](https://pkg.go.dev/badge/github.com/shaglund/go-avanza.svg)](https://pkg.go.dev/github.com/shaglund/go-avanza)
+![CI](https://github.com/shaglund/go-avanza/actions/workflows/build_and_test.yml/badge.svg)
 
 **Please note that I am not affiliated with Avanza Bank AB in any way. The underlying API can be taken down or changed without warning at any point in time.**
 
 ## Installation
 
-`go get github.com/open-wallstreet/go-avanza`
+`go get github.com/shaglund/go-avanza`
 
 ## Getting a TOTP Secret
 
@@ -22,7 +22,7 @@ Here are the steps to get your TOTP Secret:
 
 ## Documentation
 
-Docs: [![Go Reference](https://pkg.go.dev/badge/github.com/open-wallstreet/go-avanza.svg)](https://pkg.go.dev/github.com/open-wallstreet/go-avanza)
+Docs: [![Go Reference](https://pkg.go.dev/badge/github.com/shaglund/go-avanza.svg)](https://pkg.go.dev/github.com/shaglund/go-avanza)
 
 [Websocket information](./docs/websocket.md)
 
@@ -52,13 +52,13 @@ authenticate, err := client.Auth.Authenticate(context.Background(), username, pa
 
 **You should not save your username, password or totpSecret in your code. You ENV variables or other ways to encrypt or hide the data**
 
-See `/examples` or [GoDocs](https://pkg.go.dev/github.com/open-wallstreet/go-avanza) for more information
+See `/examples` or [GoDocs](https://pkg.go.dev/github.com/shaglund/go-avanza) for more information
 
 ## CLI tool
 You can install the CLI tool by running
 
 ```bash
-go install github.com/open-wallstreet/go-avanza
+go install github.com/shaglund/go-avanza
 ```
 
 Afterwards you can download complete Avanza stock list by running the download command

@@ -13,9 +13,9 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jszwec/csvutil"
-	client2 "github.com/open-wallstreet/go-avanza/avanza/client"
-	"github.com/open-wallstreet/go-avanza/avanza/market"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	client2 "github.com/shaglund/go-avanza/avanza/client"
+	"github.com/shaglund/go-avanza/avanza/market"
+	"github.com/shaglund/go-avanza/avanza/models"
 	"github.com/schollz/progressbar/v3"
 
 	"github.com/spf13/cobra"

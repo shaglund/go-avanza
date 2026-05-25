@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/open-wallstreet/go-avanza/avanza"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza"
+	"github.com/shaglund/go-avanza/avanza/models"
 )
 
 func main() {

@@ -4,7 +4,7 @@
 //
 // To install the package simply run
 //
-//	go get github.com/open-wallstreet/go-avanza
+//	go get github.com/shaglund/go-avanza
 //
 // You can create a new client simply like this
 //
@@ -22,12 +22,12 @@
 package avanza
 
 import (
-	"github.com/open-wallstreet/go-avanza/avanza/account"
-	"github.com/open-wallstreet/go-avanza/avanza/auth"
-	"github.com/open-wallstreet/go-avanza/avanza/client"
-	"github.com/open-wallstreet/go-avanza/avanza/market"
-	"github.com/open-wallstreet/go-avanza/avanza/order"
-	"github.com/open-wallstreet/go-avanza/avanza/websocket"
+	"github.com/shaglund/go-avanza/avanza/account"
+	"github.com/shaglund/go-avanza/avanza/auth"
+	"github.com/shaglund/go-avanza/avanza/client"
+	"github.com/shaglund/go-avanza/avanza/market"
+	"github.com/shaglund/go-avanza/avanza/order"
+	"github.com/shaglund/go-avanza/avanza/websocket"
 )
 
 type AvanzaClient struct {

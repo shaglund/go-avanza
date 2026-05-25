@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza/models"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"testing"

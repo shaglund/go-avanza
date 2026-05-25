@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/go-resty/resty/v2"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza/models"
 )
 
 const (

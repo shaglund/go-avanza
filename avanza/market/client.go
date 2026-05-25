@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/open-wallstreet/go-avanza/avanza/client"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza/client"
+	"github.com/shaglund/go-avanza/avanza/models"
 )
 
 const (

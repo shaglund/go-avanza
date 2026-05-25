@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/websocket"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza/models"
 	"go.uber.org/atomic"
 	"strings"
 	"time"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/go-playground/form/v4"
 	"github.com/go-playground/validator/v10"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza/models"
 	"net/url"
 	"strings"
 	"time"

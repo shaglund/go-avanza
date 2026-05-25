@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"github.com/joho/godotenv"
-	"github.com/open-wallstreet/go-avanza/avanza"
-	"github.com/open-wallstreet/go-avanza/avanza/models"
+	"github.com/shaglund/go-avanza/avanza"
+	"github.com/shaglund/go-avanza/avanza/models"
 	"log"
 	"os"
 	"time"

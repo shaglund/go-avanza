@@ -1,4 +1,4 @@
-module github.com/open-wallstreet/go-avanza
+module github.com/shaglund/go-avanza
 
 go 1.23.0
 
