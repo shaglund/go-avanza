@@ -62,45 +62,55 @@ type GetMyCompanyEventsResponse struct {
 }
 
 type GetTransactionsResponse struct {
-	Transactions              []Transaction `json:"transactions"`
-	TotalNumberOfTransactions int           `json:"totalNumberOfTransactions"`
+	Transactions []Transaction `json:"transactions"`
+}
+
+type TransactionOrderbook struct {
+	ID           string  `json:"id"`
+	FlagCode     string  `json:"flagCode"`
+	Name         string  `json:"name"`
+	Marketplace  string  `json:"marketplace"`
+	Type         string  `json:"type"`
+	Currency     string  `json:"currency"`
+	Isin         string  `json:"isin"`
+	VolumeFactor float64 `json:"volumeFactor"`
 }
 
 type Transaction struct {
-	Account struct {
-		Type string `json:"type"`
-		Name string `json:"name"`
-		ID   string `json:"id"`
-	} `json:"account"`
-	TransactionType  string  `json:"transactionType"`
-	VerificationDate string  `json:"verificationDate"`
-	Description      string  `json:"description"`
-	Currency         string  `json:"currency"`
-	Amount           float64 `json:"amount"`
-	ID               string  `json:"id"`
-	Sum              float64 `json:"sum,omitempty"`
-	Commission       float64 `json:"commission,omitempty"`
-	NoteID           string  `json:"noteId,omitempty"`
-	CurrencyRate     float64 `json:"currencyRate,omitempty"`
-	Orderbook        struct {
-		Isin     string `json:"isin"`
-		Currency string `json:"currency"`
-		Name     string `json:"name"`
-		FlagCode string `json:"flagCode"`
-		ID       string `json:"id"`
-		Type     string `json:"type"`
-	} `json:"orderbook,omitempty"`
-	Volume float64 `json:"volume,omitempty"`
-	Price  float64 `json:"price,omitempty"`
+	ID                         string                `json:"id"`
+	Date                       string                `json:"date"`
+	SettlementDate             string                `json:"settlementDate"`
+	AvailabilityDate           string                `json:"availabilityDate"`
+	TradeDate                  string                `json:"tradeDate"`
+	Account                    Account               `json:"account"`
+	Orderbook                  *TransactionOrderbook `json:"orderbook"`
+	InstrumentName             *string               `json:"instrumentName"`
+	Description                string                `json:"description"`
+	Type                       string                `json:"type"`
+	BackofficeType             string                `json:"backofficeType"`
+	BackofficeTypeText         string                `json:"backofficeTypeText"`
+	Volume                     *Value                `json:"volume"`
+	PriceInTradedCurrency      *Value                `json:"priceInTradedCurrency"`
+	Amount                     Value                 `json:"amount"`
+	OnCreditAccount            bool                  `json:"onCreditAccount"`
+	Commission                 *Value                `json:"commission"`
+	CurrencyRate               *float64              `json:"currencyRate"`
+	NoteID                     *string               `json:"noteId"`
+	PriceInTransactionCurrency *Value                `json:"priceInTransactionCurrency"`
+	Intraday                   bool                  `json:"intraday"`
+	ForeignTaxRate             *float64              `json:"foreignTaxRate"`
+	Isin                       *string               `json:"isin"`
+	Result                     *Value                `json:"result"`
+	VolumeFactor               *int                  `json:"volumeFactor"`
+	Cancelled                  bool                  `json:"cancelled"`
+	CancelDate                 *string               `json:"cancelDate"`
+	VerificationNumber         string                `json:"verificationNumber"`
 }
 
 type GetTransactionsParams struct {
-	AccountID    string    `path:"accountId" validate:"required"`
-	FromDate     *Date     `query:"from"`
-	ToDate       *Date     `query:"to"`
-	OrderBookIds *[]string `query:"orderbookId"`
-	MinAmount    *float64  `query:"minAmount"`
-	MaxAmount    *float64  `query:"maxAmount"`
+	FromDate      *Date `query:"from"`
+	ToDate        *Date `query:"to"`
+	IncludeResult *bool `query:"includeResult"`
 }
 type AccountOverviewParams struct {
 	AccountID string `path:"accountId" validate:"required"`

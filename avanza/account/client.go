@@ -13,7 +13,7 @@ const (
 	AccountOverviewPath   = "/_mobile/account/{accountId}/overview"
 	GetPositionsPath      = "/_api/position-data/positions"
 	GetDealsAndOrdersPath = "/_mobile/account/dealsandorders"
-	GetTransactionsPath   = "/_mobile/account/transactions/{accountId}"
+	GetTransactionsPath   = "/_api/transactions/list"
 	GetMyCompanyEvents    = "/_cqbe/market/my-company-events"
 )
 
@@ -52,9 +52,12 @@ func (a *AccountClient) GetDealsAndOrders(ctx context.Context, options ...models
 	return res, err
 }
 
-// GetTransactions gets all your transactions. Can be filtered to include more or less data see models.GetTransactionsParams
+// GetTransactions gets all your transactions across all accounts. Can be filtered by date range and result inclusion.
 func (a *AccountClient) GetTransactions(ctx context.Context, params *models.GetTransactionsParams, options ...models.RequestOption) (*models.GetTransactionsResponse, error) {
 	res := &models.GetTransactionsResponse{}
+	if params == nil {
+		params = &models.GetTransactionsParams{}
+	}
 	err := a.Call(ctx, http.MethodGet, GetTransactionsPath, params, res, options...)
 	return res, err
 }

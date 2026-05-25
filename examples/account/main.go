@@ -43,8 +43,7 @@ func main() {
 	log.Println(positions) */
 	d := models.Date(time.Date(2020, 1, 1, 0, 0, 0, 0, time.UTC))
 	transactions, err := client.Account.GetTransactions(context.Background(), &models.GetTransactionsParams{
-		AccountID: overview.Accounts[2].AccountId,
-		FromDate:  &d,
+		FromDate: &d,
 	})
 	if err != nil {
 		log.Fatalf(err.Error())
