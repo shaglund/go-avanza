@@ -101,7 +101,7 @@ type Transaction struct {
 	ForeignTaxRate             *float64              `json:"foreignTaxRate"`
 	Isin                       *string               `json:"isin"`
 	Result                     *Value                `json:"result"`
-	VolumeFactor               *int                  `json:"volumeFactor"`
+	VolumeFactor               *float64              `json:"volumeFactor"`
 	Cancelled                  bool                  `json:"cancelled"`
 	CancelDate                 *string               `json:"cancelDate"`
 	VerificationNumber         string                `json:"verificationNumber"`
