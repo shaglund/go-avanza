@@ -94,11 +94,11 @@ type Transaction struct {
 	Amount                     Value                 `json:"amount"`
 	OnCreditAccount            bool                  `json:"onCreditAccount"`
 	Commission                 *Value                `json:"commission"`
-	CurrencyRate               *float64              `json:"currencyRate"`
+	CurrencyRate               *Value                `json:"currencyRate"`
 	NoteID                     *string               `json:"noteId"`
 	PriceInTransactionCurrency *Value                `json:"priceInTransactionCurrency"`
 	Intraday                   bool                  `json:"intraday"`
-	ForeignTaxRate             *float64              `json:"foreignTaxRate"`
+	ForeignTaxRate             *Value                `json:"foreignTaxRate"`
 	Isin                       *string               `json:"isin"`
 	Result                     *Value                `json:"result"`
 	VolumeFactor               *float64              `json:"volumeFactor"`
